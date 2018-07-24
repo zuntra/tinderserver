@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "allowJs": false,
+        "allowUnreachableCode": false,
+        "forceConsistentCasingInFileNames": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "noFallthroughCasesInSwitch": true,
+        "noImplicitReturns": true,
+        "noImplicitUseStrict": false,
+        "strictNullChecks": true,
+        "declaration": true,
+        "target": "es6",
+        "baseUrl": "src/",
+        "outDir": "bin"
+    },
+    "paths": {
+      "src/*" : ["./src/*"]
+    },
+    "exclude": [
+        "node_modules",
+        "bin"
+    ]
+}

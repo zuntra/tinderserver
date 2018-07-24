@@ -1,0 +1,22 @@
+# Dependency directory
+node_modules
+
+# Users Environment Variables
+.lock-wscript
+
+# databases
+*.sqlite3
+
+# local config files
+/config/user/*
+
+# logs
+*.log
+
+# coverage
+coverage
+.nyc_output
+
+# ts output
+/bin
+/config/Config.d.ts

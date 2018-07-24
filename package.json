@@ -1,0 +1,33 @@
+{
+  "name": "zuntra-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "bin/index.js",
+  "scripts": {
+    "dev": "nodemon -e ts --exec 'NODE_PATH=./src ts-node ./src'",
+    "postinstall": "node-config-ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bunyan": "^1.8.12",
+    "bunyan-streams-config": "^1.0.2",
+    "glue": "^5.0.0",
+    "good": "^8.1.1",
+    "good-console": "^7.1.0",
+    "good-squeeze": "^5.1.0",
+    "hapi": "^17.5.2",
+    "hapi-auth-jwt2": "^8.1.0",
+    "hapi-swagger": "^9.1.1",
+    "inert": "^5.1.0",
+    "inverse": "^1.0.0",
+    "knex": "^0.15.2",
+    "node-config-ts": "^1.2.5",
+    "objection": "^1.2.0",
+    "sqlite3": "^4.0.2",
+    "vision": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/node": "^10.5.2"
+  }
+}

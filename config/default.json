@@ -1,0 +1,103 @@
+{
+  "manifest": {
+    "server": {
+      "address": "0.0.0.0",
+      "port": 8080,
+      "routes": {
+        "cors": {
+          "origin": [
+            "*"
+          ],
+          "credentials": true
+        }
+      },
+      "router": {
+        "stripTrailingSlash": true
+      }
+    },
+    "register": {
+      "plugins": [
+        {
+          "plugin": "hapi-auth-jwt2"
+        },
+        {
+          "plugin": "util/initAuth"
+        },
+        {
+          "plugin": "./api"
+        },
+        {
+          "plugin": "inert"
+        },
+        {
+          "plugin": "vision"
+        },
+        {
+          "plugin": "hapi-swagger",
+          "options": {
+            "info": {
+              "title": "getMovies"
+            },
+            "grouping": "tags",
+            "documentationPath": "/"
+          }
+        },
+        {
+          "plugin": "good",
+          "options": {
+            "ops": {
+              "interval": 1000
+            },
+            "reporters": {
+              "console": [
+                {
+                  "module": "good-squeeze",
+                  "name": "Squeeze",
+                  "args": [
+                    {
+                      "error": "*"
+                    }
+                  ]
+                },
+                {
+                  "module": "good-console"
+                },
+                "stdout"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "knex": {
+    "useNullAsDefault": true,
+    "client": "sqlite3",
+    "connection": {
+      "filename": "./database.sqlite3"
+    }
+  },
+  "cookieOptions": {
+    "ttl": 31536000000,
+    "encoding": "none",
+    "isSecure": false,
+    "isHttpOnly": true,
+    "clearInvalid": true,
+    "strictHeader": true,
+    "path": "/"
+  },
+  "bunyan": {
+    "src": false,
+    "directory": "logs",
+    "streams": [
+      {
+        "type": "console-pretty",
+        "level": "debug"
+      },
+      {
+        "type": "file",
+        "path": "logs/app.log"
+      }
+    ]
+  }
+}
